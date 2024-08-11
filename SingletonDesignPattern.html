@@ -1,0 +1,192 @@
+
+
+1.Singleton Design Pattern  
+
+
+    It is a class and one instance. This one instance will be used in everywhere in the entire
+    whole application. This is singleton.
+
+
+    Class: You define a class, like MyService.
+    Instance: Spring creates only one object (instance) of that class.
+    Usage: This one instance is shared and used everywhere in your application,
+    whenever the class is needed.
+
+
+
+    What is the Singleton Design Pattern?
+        The Singleton design pattern ensures that a class has only one instance and 
+        provides a global point of access to that instance.
+
+        Imagine you have a school principal. There is only one principal in the school, 
+        right? You don’t want multiple principals; you want just one. 
+        The Singleton pattern ensures that only one instance of the Principal class is 
+        created.
+
+
+        // Principal class - Singleton
+
+
+class Principal {
+    // Step 1: Create a private static instance of the class
+    private static Principal instance;
+
+    // Step 2: Make the constructor private so no one else can create an instance
+    private Principal() {
+        System.out.println("Principal is now assigned!");
+    }
+
+    // Step 3: Provide a public static method to get the single instance of the class
+    public static Principal getInstance() {
+        if (instance == null) {
+            // If no instance exists, create one
+            instance = new Principal();
+        }
+        return instance;
+    }
+
+    public void announce() {
+        System.out.println("This is the principal speaking!");
+    }
+}
+
+// School class to demonstrate Singleton
+public class School {
+    public static void main(String[] args) {
+        // Trying to get the principal instance
+        Principal principal1 = Principal.getInstance();
+        principal1.announce();
+
+        // Trying to get another instance of the principal
+        Principal principal2 = Principal.getInstance();
+        principal2.announce();
+
+        // Checking if both references point to the same instance
+        if (principal1 == principal2) {
+            System.out.println("There is only one principal!");
+        } else {
+            System.out.println("There are multiple principals!");
+        }
+    }
+}
+
+
+Output
+
+Principal is now assigned!
+This is the principal speaking!
+This is the principal speaking!
+There is only one principal!
+
+
+1. Why Use static in private static Principal instance;?
+
+    The static keyword is used to ensure that the instance variable belongs to the class
+    itself and not to any particular object created from the class. This means that no matter
+    how many objects or references are created from the class, there will only be
+    one instance variable shared across all of them.
+
+
+2.Why Use the Singleton Pattern in Real-World Applications?
+
+Real-World Examples
+
+    1.Database Connection
+
+        In an application, you often need to connect to a database. 
+        Creating multiple connections can be resource-intensive and slow.
+        Instead, you can use a Singleton pattern to create a single database connection 
+        that is reused across the entire application. 
+    
+        class DatabaseConnection {
+            private static DatabaseConnection instance;
+
+            private DatabaseConnection() {
+                // Code to establish a connection to the database
+                System.out.println("Database connection established!");
+            }
+            public static DatabaseConnection getInstance() {
+                if (instance == null) {
+                    instance = new DatabaseConnection();
+                }
+                return instance;
+            }
+        }
+    
+    2.Configuration Manager
+
+        Imagine you have a class that reads configuration settings from a file
+        (like API keys, database URLs, etc.). 
+        You don’t want to load the configuration file every time you need a setting. 
+        Instead, you can load it once and share it using a Singleton pattern.
+
+        class ConfigurationManager {
+            private static ConfigurationManager instance;
+            private String config;
+            
+            private ConfigurationManager() {
+                // Load the configuration file
+                config = "Settings loaded!";
+            }
+            
+            public static ConfigurationManager getInstance() {
+                if (instance == null) {
+                    instance = new ConfigurationManager();
+                }
+                return instance;
+            }
+        
+            public String getConfig() {
+                return config;
+            }
+        }
+        
+        
+
+
+
+    Reality MySQL Database Connecting Code
+
+        import java.sql.Connection;
+        import java.sql.DriverManager;
+        import java.sql.SQLException;
+
+        public class DatabaseConnection {
+            // Step 1: Create a private static instance of this class
+            private static DatabaseConnection instance;
+
+            // Step 2: Create a Connection object
+            private Connection connection;
+
+            // Database credentials
+            private String url = "jdbc:mysql://localhost:3306/your_database_name";
+            private String username = "your_username";
+            private String password = "your_password";
+
+            // Step 3: Private constructor so no other class can instantiate
+            private DatabaseConnection() {
+                try {
+                    // Step 4: Establish the database connection
+                    connection = DriverManager.getConnection(url, username, password);
+                    System.out.println("Database connection established!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("Failed to establish database connection!");
+                }
+            }
+
+            // Step 5: Public static method to get the single instance of the class
+            public static DatabaseConnection getInstance() {
+                if (instance == null) {
+                    instance = new DatabaseConnection();
+                }
+                return instance;
+            }
+
+            // Step 6: Provide a method to get the connection
+            public Connection getConnection() {
+                return connection;
+            }
+        }
+
+
