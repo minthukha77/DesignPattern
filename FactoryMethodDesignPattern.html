@@ -1,5 +1,7 @@
 
 
+//Object creation =====> FactoryMethodDesignPattern
+
 FactoryMethodDesignPattern
 
     The FactoryMethodDesignPattern cannot create Object by not using 'New' keyword.
@@ -11,3 +13,43 @@ FactoryMethodDesignPattern
         
 
     
+MySQL
+
+MySQLConnection con =
+        new MySQLConnection();
+
+
+
+OracleConnection con =
+        new OracleConnection();
+
+
+
+
+This code volates rules by using
+         concrete implementation.
+    
+    1.program to interface not implementation principle
+    
+
+Problem :
+
+    interface connection {
+
+    }
+
+    class MySQLConnection implements Connection{}
+
+    class OracleConnection implements Connection{}
+
+    //This can solve program to interface not implementation principle
+
+
+    Connection getConnection(){
+        // This code violates OCP Principle
+        if(con){
+            return new MySQLConnection
+        } else{
+            return new OracleConnection
+        }
+    }
