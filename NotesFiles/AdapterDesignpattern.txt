@@ -1,0 +1,15 @@
+Problem
+
+        Class OldApi(){
+            void push()
+        }
+
+        Class NewApi(){
+            void add();
+        }
+
+        want to use NewApi instead of OldApi
+        but cannot delete OldApi because
+        some of services are using it.
+
+        

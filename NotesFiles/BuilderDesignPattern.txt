@@ -1,0 +1,62 @@
+Problem
+
+Text
+{
+    label
+    color
+    background
+    font
+    fontsize
+}
+
+Text(label)
+Text(label,color)
+Text(color,bg)
+Text(bg,font,fontsize)
+
+
+
+Complex Objects can solved by Builder Pattern.
+
+Multiple Constructors can solved by Builder Pattern.
+
+Constructors may have 120 numbers for 5 parameters.
+
+
+Solved
+    
+    Builder
+
+        {
+            label
+            color
+            background
+            font
+            fontsize
+
+            Builder()
+            {
+                label
+                color
+                background
+                font
+                fontsize
+
+                label(label)
+                color()
+
+                .build()
+                {
+                    new Text(Builder)
+                }
+
+
+            }
+
+        }
+
+       
+
+***** Lombok is used BuilderDesignPattern.
+
+@Builder

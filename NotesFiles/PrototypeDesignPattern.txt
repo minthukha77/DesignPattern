@@ -1,0 +1,10 @@
+Problem
+
+    Class Config{
+        prop1
+        prop2
+
+    }
+
+    prop1 and 2 is so heavy for calculation for CPU and system performance.
+    
