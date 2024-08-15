@@ -1,0 +1,24 @@
+Composite Style
+
+    JPanel
+        container
+        Button
+        Txt
+
+        Label
+
+
+
+
+
+    Tree
+
+        Parent
+            child
+                sub tree
+
+
+    In code, for tree structured implementation, use Composite
+
+
+    

@@ -1,0 +1,43 @@
+1. Creational Patterns
+
+    Real-World Analogy: Think of a factory that can produce different models of cars
+    based on demand, without changing the underlying manufacturing process.
+    
+    1.Facotry Method
+    2.Abstract Factory
+    3.Builder
+    4.Prototype
+    5.Singleton
+
+
+2.Structural Patterns
+
+    Real-World Analogy: An electrical adapter allows a plug with a different shape to fit
+    into an outlet, enabling devices from different countries to work together.
+
+    1.Adapter
+    2.Bridge
+    3.Composite
+    4.Decorator
+    5.Facade
+    6.Flyweight
+    7.Proxy
+
+
+3.Behavioral Patterns
+
+    Real-World Analogy: Think of a newspaper subscription. When a new edition is published,
+    the newspaper company notifies all subscribers (observers) who have subscribed to it.
+
+
+Summary of Differences:
+    Creational: How objects are created.
+    Structural: How objects and classes are composed or structured.
+    Behavioral: How objects interact and communicate.
+
+
+    In software, this idea is similar. 
+    A Factory Method pattern allows you to create different types of objects using 
+    the same process. You can decide at runtime which object to create, 
+    but you don't need to change the code that handles the creation process itself.
+
