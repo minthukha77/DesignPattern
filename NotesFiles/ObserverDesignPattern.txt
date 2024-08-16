@@ -1,0 +1,4 @@
+Observer
+
+    IF client side rendering, data model changed, views will change.
+    So, we will use it in case.

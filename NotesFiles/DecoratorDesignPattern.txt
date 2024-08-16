@@ -1,0 +1,34 @@
+MoteHinGar
+    additional functionality
+        Nannan Pin
+        PaeKyaw
+        BaeU
+        EiKyarkywae
+
+MoteHinGarPaeKyaw
+MoteHinGarPaeKyawBaeU
+
+
+To add functionality, it is called Decorator.
+
+Needed noly functionality, will add.
+
+
+By using Decorator
+
+Logger
+    HTML
+    Date
+
+
+If you use,inheritance instead of Decorator
+
+Logger
+
+    HTMLLogger
+    DateLogger
+    HTMLDateLogger
+
+
+
+Especially use in Buffering a Stream Java.
