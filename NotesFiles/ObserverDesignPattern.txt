@@ -1,4 +1,7 @@
 Observer
 
     IF client side rendering, data model changed, views will change.
+    We need notify it.
+    Details,
+        From data model notify to views.
     So, we will use it in case.
